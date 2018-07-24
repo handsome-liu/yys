@@ -1,0 +1,588 @@
+/* home */
+body {
+    position: relative;
+    min-width: $body-min-width;
+    max-width: $body-max-width;
+    margin: {
+        left: auto;
+        right: auto;
+    }
+    // 禁止滚动
+    &.noScroll {
+        height: 100%;
+        overflow: hidden;
+    }
+}
+
+/* 背景 */
+#bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    .bg1,
+    .bg2,
+    .bg3 {
+        background: {
+            repeat: no-repeat;
+            position: center top;
+        }
+    }
+    .bg1,
+    .bg2 {
+        height: 1080px;
+    }
+    .bg1 {
+        background-image: url('../images/home/bg1.jpg');
+        object {
+            margin-top: $header-height;
+            width: 100%;
+            height: 1022px;
+        }
+    }
+    .bg2 {
+        background-image: url('../images/home/bg2.jpg');
+    }
+    .bg3 {
+        height: 534px;
+        background-image: url('../images/home/bg3.jpg');
+    }
+}
+
+/* 头部 */
+#header {
+    height: $header-height;
+    background: #fff;
+}
+
+/* 首屏 */
+#first-screen {
+    $animation-duration: 2s;
+    $animation-timing-function: ease;
+    position: relative;
+    height: 1040px;
+    .swp1,
+    .swp2,
+    .swp3,
+    .swp4,
+    .mouse,
+    .videoBtn {
+        position: absolute;
+    }
+    .swp1 {
+        left: 30px;
+        top: 15px;
+        opacity: 1;
+        animation: {
+            name: swp1;
+            duration: $animation-duration;
+            timing-function: $animation-timing-function;
+        }
+        .logo1,
+        .logo2 {
+            vertical-align: middle;
+        }
+        .logo2 {
+            $width-height: 90px;
+            width: $width-height;
+            height: $width-height;
+            margin-left: 10px;
+            border: {
+                color: #fff;
+                width: 2px;
+                style: solid;
+                radius: 15px;
+            }
+        }
+    }
+    .swp2 {
+        right: 30px;
+        top: 30px;
+        width: 177px;
+        height: 45px;
+        background: {
+            image: url('../images/home/goindex.png');
+            repeat: no-repeat;
+            position: center;
+        }
+        animation: {
+            name: swp2;
+            duration: $animation-duration;
+            timing-function: $animation-timing-function;
+        }
+    }
+    .swp3 {
+        right: 45px;
+        top: 70px;
+        width: 340px;
+        height: 521px;
+        background: {
+            image: url('../images/home/gameversion.png');
+            repeat: no-repeat;
+            position: center;
+        }
+        animation: {
+            name: swp3;
+            duration: $animation-duration;
+            timing-function: $animation-timing-function;
+        }
+    }
+    .swp4 {
+        $qrcode-width: 120px;
+        right: 120px;
+        top: 560px;
+        animation: {
+            name: swp4;
+            duration: $animation-duration;
+            timing-function: $animation-timing-function;
+        }
+        p {
+            font: {
+                weight: bold;
+                size: 16px;
+            }
+            color: #3d2672;
+        }
+        .qrcode,
+        .down {
+            vertical-align: middle;
+            display: inline-block;
+        }
+        .qrcode {
+            position: relative;
+            width: $qrcode-width;
+            height: $qrcode-width;
+            border: {
+                width: 5px;
+                style: solid;
+                color: rgba($color: #fff, $alpha: 0.5);
+                radius: 5px;
+            }
+            background: {
+                image: url('../images/home/qrcode.png');
+                repeat: no-repeat;
+                size: cover;
+                position: center;
+            }
+            .line {
+                position: absolute;
+                top: 0;
+                margin: {
+                    left: -12px;
+                }
+                animation: {
+                    name: qrcode;
+                    duration: $animation-duration;
+                    timing-function: $animation-timing-function;
+                    iteration-count: infinite;
+                }
+            }
+        }
+        .down {
+            a {
+                display: block;
+                width: 205px;
+                height: 61px;
+                background-repeat: no-repeat;
+                &.android {
+                    background-image: url('../images/home/downand.png');
+                }
+                &.ios {
+                    margin-top: 5px;
+                    background-image: url('../images/home/downios.png');
+                }
+                span {
+                    display: block;
+                    height: 100%;
+                    background-color: rgba($color: #000, $alpha: 0.5);
+                    &:hover {
+                        background-color: rgba($color: #000, $alpha: 0);
+                    }
+                    &,
+                    &:hover {
+                        transition: all 0.5s;
+                    }
+                }
+            }
+        }
+    }
+    .mouse {
+        bottom: 260px;
+        left: 0;
+        right: 0;
+        width: 30px;
+        height: 70px;
+        margin: {
+            left: auto;
+            right: auto;
+        }
+        background: {
+            image: url('../images/home/dBtn.png');
+            repeat: no-repeat;
+            position: center;
+            size: cover;
+        }
+        animation: {
+            name: mouse;
+            duration: 1s;
+            timing-function: linear;
+            iteration-count: infinite;
+        }
+    }
+    .videoBtn {
+        top: 400px;
+        right: 325px;
+        width: 165px;
+        height: 120px;
+        text-align: right;
+        background: {
+            image: url('../images/home/videoBtn.png');
+            repeat: no-repeat;
+            position: center;
+        }
+        cursor: pointer;
+        .videoBtnAR {
+            margin: {
+                right: 2px;
+                top: 2px;
+            }
+            transform: rotate(33deg);
+        }
+    }
+    .video {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: #000, $alpha: 0.5);
+        .wrap {
+            $video-width: 800px;
+            $video-height: 450px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            width: $video-width;
+            height: $video-height;
+            margin: {
+                top: auto;
+                bottom: auto;
+                left: auto;
+                right: auto;
+            }
+            border: {
+                width: 2px;
+                style: solid;
+                color: #b69476;
+            }
+            object {
+                width: $video-width;
+                height: $video-height;
+            }
+            .close {
+                @extend %close;
+                top: 0;
+                right: -50px;
+            }
+        }
+    }
+}
+
+/* 新版本情报 */
+#newinfo {
+    height: 700px;
+    .main {
+        width: $body-min-width;
+        margin: {
+            left: auto;
+            right: auto;
+        }
+        .title,
+        ul li {
+            position: relative;
+            top: 0;
+            opacity: 1;
+            background-repeat: no-repeat;
+            transition: all $t * 1s;
+        }
+        .title.hidden,
+        ul li.hidden {
+            top: 100px;
+            opacity: 0;
+        }
+        .title {
+            height: 150px;
+            background: {
+                image: url('../images/home/newinfo/newinfo.png');
+                position: center;
+            }
+            transition: all $t * 1s;
+        }
+        ul {
+            $right: 10px;
+            $top-bottom: 20px;
+            margin: {
+                right: -$right;
+            }
+            font-size: 0;
+            li {
+                display: inline-block;
+                width: $newinfo-img-width;
+                height: $newinfo-img-height;
+                margin: {
+                    right: $right;
+                    top: $top-bottom;
+                    bottom: $top-bottom;
+                }
+                font-size: 16px;
+                cursor: pointer;
+                /*循环*/
+                @for $var from 1 through 6 {
+                    &:nth-of-type(#{$var}) {
+                        background-image: url('../images/home/newinfo/p#{$var}.png');
+                    }
+                }
+                i {
+                    position: absolute;
+                    background-color: #a57c47;
+                    &:nth-of-type(1),
+                    &:nth-of-type(3) {
+                        width: 0;
+                        height: 2px;
+                    }
+                    &:nth-of-type(2),
+                    &:nth-of-type(4) {
+                        width: 2px;
+                        height: 0;
+                    }
+                    &:nth-of-type(1) {
+                        top: $newinfo-gap;
+                        left: $newinfo-gap;
+                    }
+                    &:nth-of-type(2) {
+                        top: $newinfo-gap;
+                        right: $newinfo-gap;
+                    }
+                    &:nth-of-type(3) {
+                        bottom: $newinfo-gap;
+                        right: $newinfo-gap;
+                    }
+                    &:nth-of-type(4) {
+                        bottom: $newinfo-gap;
+                        left: $newinfo-gap;
+                    }
+                }
+                &:hover {
+                    top: -15px;
+                    transition: all $t * 1s;
+                    i {
+                        &:nth-of-type(1),
+                        &:nth-of-type(2),
+                        &:nth-of-type(3),
+                        &:nth-of-type(4) {
+                            animation-fill-mode: forwards;
+                        }
+                        &:nth-of-type(1),
+                        &:nth-of-type(3) {
+                            animation: {
+                                name: i-width;
+                                duration: strip-units($animation-i-width/$v) * 1s;
+                            }
+                        }
+                        &:nth-of-type(2),
+                        &:nth-of-type(4) {
+                            animation: {
+                                name: i-height;
+                                duration: strip-units($animation-i-height/$v) * 1s;
+                            }
+                        }
+                        &:nth-of-type(2) {
+                            animation-delay: strip-units($animation-i-width/$v) * 1s;
+                        }
+                        &:nth-of-type(3) {
+                            animation-delay: strip-units(($animation-i-width + $animation-i-height) / $v) * 1s;
+                        }
+                        &:nth-of-type(4) {
+                            animation-delay: strip-units(($animation-i-width * 2 + $animation-i-height) / $v) * 1s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .details {
+        display: none;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background-color: rgba($color: #000, $alpha: 0.5);
+        .content {
+            $details-width: $body-min-width;
+            $details-height: 735px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            overflow: hidden;
+            width: $details-width;
+            height: $details-height;
+            margin: auto;
+            ul {
+                position: relative;
+                right: 0;
+                width: 900%;
+                font-size: 0;
+                li {
+                    display: inline-block;
+                    width: $details-width;
+                    height: $details-height;
+                    margin: {
+                        left: auto;
+                        right: auto;
+                    }
+                    font-size: 16px;
+                    background: {
+                        repeat: no-repeat;
+                        position: {
+                            x: -20px;
+                            y: -20px;
+                        }
+                    }
+                    @for $var from 1 through 6 {
+                        &:nth-of-type(#{$var}) {
+                            background-image: url('../images/home/newinfo/ren#{$var}.png');
+                        }
+                    }
+                    &:nth-of-type(7) {
+                        background-image: url('../images/home/newinfo/ren1.png');
+                    }
+                    .txt {
+                        $txt-width: 440px;
+                        $txt-height: 310px;
+                        @include border(transparent);
+                        position: relative;
+                        overflow: hidden;
+                        width: $txt-width;
+                        height: $txt-height;
+                        margin: {
+                            left: 530px;
+                            top: 190px;
+                        }
+                        padding-right: 50px;
+                        .con {
+                            position: relative;
+                            line-height: 35px;
+                            color: #333;
+                            .boldBlack,
+                            .boldRed {
+                                font-weight: bold;
+                            }
+                            .boldRed {
+                                color: #e5402a;
+                            }
+                            .boldBlack {
+                                color: black;
+                            }
+                        }
+                        .scrollbar {
+                            $bar-width: 10px;
+                            $bar-radius: 5px;
+                            display: none;
+                            right: 0;
+                            height: $txt-height;
+                            background-color: #eee;
+                            opacity: 0.5;
+                            cursor: pointer;
+                            &,
+                            & span {
+                                position: absolute;
+                                width: $bar-width;
+                                top: 0;
+                                border-radius: $bar-radius;
+                            }
+                            span {
+                                height: 50px;
+                                background-color: #000;
+                            }
+                            &:hover {
+                                opacity: 1;
+                            }
+                        }
+                        &:hover {
+                            .scrollbar {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+            .close {
+                @extend %close;
+                top: 105px;
+                right: 120px;
+            }
+            .left,
+            .right {
+                position: absolute;
+                width: 47px;
+                height: 18px;
+                top: 0;
+                bottom: 0;
+                margin: {
+                    top: auto;
+                    bottom: auto;
+                }
+                background: {
+                    repeat: no-repeat;
+                    position: center;
+                }
+                animation: {
+                    duration: 2s;
+                    timing-function: linear;
+                    iteration-count: infinite;
+                }
+                cursor: pointer;
+            }
+            .left {
+                left: 15px;
+                background: {
+                    image: url('../images/home/newinfo/toleft.png');
+                }
+                &:hover {
+                    animation-name: newinfo-left;
+                }
+            }
+            .right {
+                right: 15px;
+                background: {
+                    image: url('../images/home/newinfo/toright.png');
+                }
+                &:hover {
+                    animation-name: newinfo-right;
+                }
+            }
+        }
+    }
+}
+
+/* 游戏特色 */
+#game {
+    // height: 700px;
+    @include border(red);
+    .title {
+        height: 150px;
+        background: {
+            image: url('../images/home/game/game_title.png');
+            repeat: no-repeat;
+            position: center;
+        }
+    }
+}

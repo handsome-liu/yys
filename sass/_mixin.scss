@@ -1,0 +1,24 @@
+//mixin
+/*233*/
+
+
+//%占位符
+%close {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    background: {
+        image: url('../images/home/close.png');
+        repeat: no-repeat;
+        position: center;
+    }
+    transform: rotate(0deg);
+    cursor: pointer;
+    &:hover {
+        transform: rotate(180deg);
+    }
+    &,
+    &:hover {
+        transition: all 0.3s;
+    }
+}
