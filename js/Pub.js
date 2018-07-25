@@ -1,6 +1,6 @@
 'use strict';
 class Pub {
-        //添加事件 addEvent(目标，事件类型，处理函数，是否捕捉)
+    //添加事件 addEvent(目标，事件类型，处理函数，是否捕捉)
     static addEvent(obj, eventType, fn, boolean = false) {
         //兼容firefox 鼠标滚动事件
         if (window.navigator.userAgent.indexOf('Firefox') != -1 && eventType == 'mousewheel') eventType = 'DOMMouseScroll';

@@ -79,6 +79,16 @@ body {
             duration: $animation-duration;
             timing-function: $animation-timing-function;
         }
+        @keyframes swp1 {
+            0% {
+                left: -190px;
+                opacity: 0;
+            }
+            100% {
+                left: 30px;
+                opacity: 1;
+            }
+        }
         .logo1,
         .logo2 {
             vertical-align: middle;
@@ -111,6 +121,16 @@ body {
             duration: $animation-duration;
             timing-function: $animation-timing-function;
         }
+        @keyframes swp2 {
+            0% {
+                right: -190px;
+                opacity: 0;
+            }
+            100% {
+                right: 30px;
+                opacity: 1;
+            }
+        }
     }
     .swp3 {
         right: 45px;
@@ -127,6 +147,16 @@ body {
             duration: $animation-duration;
             timing-function: $animation-timing-function;
         }
+        @keyframes swp3 {
+            0% {
+                top: 600px;
+                opacity: 0;
+            }
+            100% {
+                top: 70px;
+                opacity: 1;
+            }
+        }
     }
     .swp4 {
         $qrcode-width: 120px;
@@ -136,6 +166,16 @@ body {
             name: swp4;
             duration: $animation-duration;
             timing-function: $animation-timing-function;
+        }
+        @keyframes swp4 {
+            0% {
+                top: 720px;
+                opacity: 0;
+            }
+            100% {
+                top: 560px;
+                opacity: 1;
+            }
         }
         p {
             font: {
@@ -176,6 +216,17 @@ body {
                     duration: $animation-duration;
                     timing-function: $animation-timing-function;
                     iteration-count: infinite;
+                }
+                @keyframes qrcode {
+                    0% {
+                        top: 0;
+                    }
+                    50% {
+                        top: 112px;
+                    }
+                    100% {
+                        top: 0;
+                    }
                 }
             }
         }
@@ -228,6 +279,16 @@ body {
             duration: 1s;
             timing-function: linear;
             iteration-count: infinite;
+        }
+        @keyframes mouse {
+            0% {
+                bottom: 260px;
+                opacity: 1;
+            }
+            100% {
+                bottom: 100px;
+                opacity: 0;
+            }
         }
     }
     .videoBtn {
@@ -296,6 +357,10 @@ body {
 #newinfo {
     height: 700px;
     .main {
+        $newinfo-img-width: 418px; //新版本情报的图片宽度
+        $newinfo-img-height: 196px; //新版本情报的图片高度
+        $newinfo-gap: 8px; //新版本情报的图片和线框的间隙
+        $newinfo-t: 0.5; //新版本情报图片运动时间
         width: $body-min-width;
         margin: {
             left: auto;
@@ -307,7 +372,7 @@ body {
             top: 0;
             opacity: 1;
             background-repeat: no-repeat;
-            transition: all $t * 1s;
+            transition: all $newinfo-t * 1s;
         }
         .title.hidden,
         ul li.hidden {
@@ -320,7 +385,6 @@ body {
                 image: url('../images/home/newinfo/newinfo.png');
                 position: center;
             }
-            transition: all $t * 1s;
         }
         ul {
             $right: 10px;
@@ -340,76 +404,23 @@ body {
                 }
                 font-size: 16px;
                 cursor: pointer;
-                /*循环*/
+                //循环
                 @for $var from 1 through 6 {
                     &:nth-of-type(#{$var}) {
                         background-image: url('../images/home/newinfo/p#{$var}.png');
                     }
                 }
-                i {
-                    position: absolute;
-                    background-color: #a57c47;
-                    &:nth-of-type(1),
-                    &:nth-of-type(3) {
-                        width: 0;
-                        height: 2px;
-                    }
-                    &:nth-of-type(2),
-                    &:nth-of-type(4) {
-                        width: 2px;
-                        height: 0;
-                    }
-                    &:nth-of-type(1) {
-                        top: $newinfo-gap;
-                        left: $newinfo-gap;
-                    }
-                    &:nth-of-type(2) {
-                        top: $newinfo-gap;
-                        right: $newinfo-gap;
-                    }
-                    &:nth-of-type(3) {
-                        bottom: $newinfo-gap;
-                        right: $newinfo-gap;
-                    }
-                    &:nth-of-type(4) {
-                        bottom: $newinfo-gap;
-                        left: $newinfo-gap;
-                    }
-                }
+                @include i(
+                    $name: 'newinfo',
+                    $div-width: $newinfo-img-width,
+                    $div-height: $newinfo-img-height,
+                    $gap: $newinfo-gap,
+                    $t: $newinfo-t,
+                    $color: #a57c47,
+                    $trigger: ':hover'
+                );
                 &:hover {
                     top: -15px;
-                    transition: all $t * 1s;
-                    i {
-                        &:nth-of-type(1),
-                        &:nth-of-type(2),
-                        &:nth-of-type(3),
-                        &:nth-of-type(4) {
-                            animation-fill-mode: forwards;
-                        }
-                        &:nth-of-type(1),
-                        &:nth-of-type(3) {
-                            animation: {
-                                name: i-width;
-                                duration: strip-units($animation-i-width/$v) * 1s;
-                            }
-                        }
-                        &:nth-of-type(2),
-                        &:nth-of-type(4) {
-                            animation: {
-                                name: i-height;
-                                duration: strip-units($animation-i-height/$v) * 1s;
-                            }
-                        }
-                        &:nth-of-type(2) {
-                            animation-delay: strip-units($animation-i-width/$v) * 1s;
-                        }
-                        &:nth-of-type(3) {
-                            animation-delay: strip-units(($animation-i-width + $animation-i-height) / $v) * 1s;
-                        }
-                        &:nth-of-type(4) {
-                            animation-delay: strip-units(($animation-i-width * 2 + $animation-i-height) / $v) * 1s;
-                        }
-                    }
                 }
             }
         }
@@ -417,6 +428,7 @@ body {
     .details {
         display: none;
         position: fixed;
+        z-index: 1;
         top: 0;
         bottom: 0;
         left: 0;
@@ -559,6 +571,17 @@ body {
                 &:hover {
                     animation-name: newinfo-left;
                 }
+                @keyframes newinfo-left {
+                    0% {
+                        left: 15px;
+                    }
+                    50% {
+                        left: 0;
+                    }
+                    100% {
+                        left: 15px;
+                    }
+                }
             }
             .right {
                 right: 15px;
@@ -568,6 +591,18 @@ body {
                 &:hover {
                     animation-name: newinfo-right;
                 }
+
+                @keyframes newinfo-right {
+                    0% {
+                        right: 15px;
+                    }
+                    50% {
+                        right: 0;
+                    }
+                    100% {
+                        right: 15px;
+                    }
+                }
             }
         }
     }
@@ -575,7 +610,6 @@ body {
 
 /* 游戏特色 */
 #game {
-    // height: 700px;
     .title {
         height: 150px;
         background: {
@@ -594,8 +628,18 @@ body {
             left: auto;
             right: auto;
         }
+        transform-style: preserve-3d; //不知道为何必须在这里或者直接不写
+        ul li,
+        .leftArrow,
+        .rightArrow {
+            position: absolute;
+            top: 0;
+            background: {
+                repeat: no-repeat;
+                position: center;
+            }
+        }
         ul {
-            @include border(red);
             position: relative;
             width: $game-img-width + $mid-img-left-right * 2;
             height: $game-img-height;
@@ -603,153 +647,59 @@ body {
                 left: auto;
                 right: auto;
             }
-            transform-style: preserve-3d;
             perspective: 800px;
             li {
+                $game-img-width: 776px; //新版本情报的图片宽度
+                $game-img-height: 439px; //新版本情报的图片高度
+                $game-gap: 15px; //新版本情报的图片和线框的间隙
+                $game-t: 1.5; //新版本情报图片运动时间
                 $rotate-Y: 66deg;
                 $translate3d-X: 386px;
                 $translate3d-Z: -445px;
-                position: absolute;
-                top: 0;
                 left: $mid-img-left-right;
-                width: $game-img-width;
-                height: $game-img-height;
-                background: {
-                    repeat: no-repeat;
-                    position: center;
-                    color: #000;
-                }
+                background-color: #000;
                 transform: translate3d(0, 0, $translate3d-Z) rotateY(0);
                 transition: transform 0.5s;
-                img {
+                &,
+                & img {
                     width: $game-img-width;
                     height: $game-img-height;
+                }
+                img {
                     opacity: 0.5;
                 }
+                @include i(
+                    $name: 'game',
+                    $div-width: $game-img-width,
+                    $div-height: $game-img-height,
+                    $gap: $game-gap,
+                    $t: $game-t,
+                    $color: #fff,
+                    $trigger: '.middle'
+                );
                 &.left {
-                    z-index: 1;
+                    z-index: 2;
                     transform: translate3d(-$translate3d-X, 0, $translate3d-Z) rotateY($rotate-Y);
                 }
                 &.middle {
-                    z-index: 1;
+                    z-index: 3;
                     transform: translate3d(0, 0, 0) rotateY(0);
                     img {
                         opacity: 1;
                     }
                 }
                 &.right {
-                    z-index: 2;
+                    z-index: 1;
                     transform: translate3d($translate3d-X, 0, $translate3d-Z) rotateY(-$rotate-Y);
                 }
             }
         }
         .leftArrow,
         .rightArrow {
-            position: absolute;
-            top: 0;
             bottom: 0;
             width: 42px;
             height: 82px;
             margin: auto;
-            background: {
-                repeat: no-repeat;
-                position: center;
-            }
-            cursor: pointer;
-        }
-        .leftArrow {
-            left: 65px;
-            background-image: url('../images/home/game/left.png');
-        }
-        .rightArrow {
-            right: 65px;
-            background-image: url('../images/home/game/right.png');
-        }
-    }
-}
-
-/* 游戏特色 */
-#game1 {
-    // height: 700px;
-    .title {
-        height: 150px;
-        background: {
-            image: url('../images/home/game/game_title.png');
-            repeat: no-repeat;
-            position: center;
-        }
-    }
-    .banner {
-        $game-img-width: 776px;
-        $game-img-height: 439px;
-        $mid-img-left-right: 100px;
-        position: relative;
-        width: $body-min-width;
-        margin: {
-            left: auto;
-            right: auto;
-        }
-        ul {
-            @include border(red);
-            position: relative;
-            width: $game-img-width + $mid-img-left-right * 2;
-            height: $game-img-height;
-            margin: {
-                left: auto;
-                right: auto;
-            }
-            transform-style: preserve-3d;
-            perspective: 800px;
-            li {
-                $rotate-Y: 62deg;
-                $translate3d-X: 215px;
-                $translate3d-Z: -525px;
-                position: absolute;
-                top: 0;
-                left: $mid-img-left-right;
-                width: $game-img-width;
-                height: $game-img-height;
-                background: {
-                    repeat: no-repeat;
-                    position: center;
-                    color: #000;
-                }
-                transform: rotateY(0) translate3d(0, 0, $translate3d-Z);
-                transition: transform 0.5s;
-                img {
-                    width: $game-img-width;
-                    height: $game-img-height;
-                    opacity: 0.5;
-                }
-                &.left {
-                    z-index: 1;
-                    transform: rotateY($rotate-Y) translate3d($translate3d-X, 0, $translate3d-Z);
-                }
-                &.middle {
-                    z-index: 1;
-                    transform: rotateY(0) translate3d(0, 0, 0);
-                    img {
-                        opacity: 1;
-                    }
-                }
-                &.right {
-                    z-index: 2;
-                    transform: rotateY(-$rotate-Y) translate3d(-$translate3d-X, 0, $translate3d-Z);
-                }
-            }
-        }
-        .leftArrow,
-        .rightArrow {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 42px;
-            height: 82px;
-            margin: auto;
-            background: {
-                repeat: no-repeat;
-                position: center;
-            }
             cursor: pointer;
         }
         .leftArrow {

@@ -3,12 +3,4 @@ $body-min-width: 1280px; //PC端body最小宽度
 $body-max-width: 1920px; //PC端body最大宽度
 //header
 $header-height: 54px; //顶部导航高度
-//newinfo
-$newinfo-img-width: 418px; //新版本情报的图片宽度
-$newinfo-img-height: 196px; //新版本情报的图片高度
-$newinfo-gap: 8px; //新版本情报的图片和线框的间隙
-$animation-i-width: $newinfo-img-width - $newinfo-gap * 2; //新版本情报线框动画宽度值
-$animation-i-height: $newinfo-img-height - $newinfo-gap * 2; //新版本情报线框动画高度值
-$s: ($animation-i-width + $animation-i-height) * 2; //新版本情报线框运动总位移
-$t: 0.5; //新版本情报图片运动时间
-$v: $s / $t; //新版本情报线框运动速度
+
