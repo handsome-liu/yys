@@ -1,5 +1,4 @@
 @charset "UTF-8";
-/*233*/
 #first-screen .video .wrap .close, #newinfo .details .content .close { position: absolute; width: 34px; height: 34px; background-image: url("../images/home/close.png"); background-repeat: no-repeat; background-position: center; transform: rotate(0deg); cursor: pointer; }
 #first-screen .video .wrap .close:hover, #newinfo .details .content .close:hover { transform: rotate(180deg); }
 #first-screen .video .wrap .close, #newinfo .details .content .close, #first-screen .video .wrap .close:hover, #newinfo .details .content .close:hover { transition: all 0.3s; }
@@ -133,8 +132,32 @@ body.noScroll { height: 100%; overflow: hidden; }
 #newinfo .details .content .right:hover { animation-name: newinfo-right; }
 
 /* 游戏特色 */
-#game { border: 1px solid red; box-sizing: border-box; }
 #game .title { height: 150px; background-image: url("../images/home/game/game_title.png"); background-repeat: no-repeat; background-position: center; }
+#game .banner { position: relative; width: 1280px; margin-left: auto; margin-right: auto; }
+#game .banner ul { border: 1px solid red; box-sizing: border-box; position: relative; width: 976px; height: 439px; margin-left: auto; margin-right: auto; transform-style: preserve-3d; perspective: 800px; }
+#game .banner ul li { position: absolute; top: 0; left: 100px; width: 776px; height: 439px; background-repeat: no-repeat; background-position: center; background-color: #000; transform: translate3d(0, 0, -445px) rotateY(0); transition: transform 0.5s; }
+#game .banner ul li img { width: 776px; height: 439px; opacity: 0.5; }
+#game .banner ul li.left { z-index: 1; transform: translate3d(-386px, 0, -445px) rotateY(66deg); }
+#game .banner ul li.middle { z-index: 1; transform: translate3d(0, 0, 0) rotateY(0); }
+#game .banner ul li.middle img { opacity: 1; }
+#game .banner ul li.right { z-index: 2; transform: translate3d(386px, 0, -445px) rotateY(-66deg); }
+#game .banner .leftArrow, #game .banner .rightArrow { position: absolute; top: 0; bottom: 0; width: 42px; height: 82px; margin: auto; background-repeat: no-repeat; background-position: center; cursor: pointer; }
+#game .banner .leftArrow { left: 65px; background-image: url("../images/home/game/left.png"); }
+#game .banner .rightArrow { right: 65px; background-image: url("../images/home/game/right.png"); }
+
+/* 游戏特色 */
+#game1 .title { height: 150px; background-image: url("../images/home/game/game_title.png"); background-repeat: no-repeat; background-position: center; }
+#game1 .banner { position: relative; width: 1280px; margin-left: auto; margin-right: auto; }
+#game1 .banner ul { border: 1px solid red; box-sizing: border-box; position: relative; width: 976px; height: 439px; margin-left: auto; margin-right: auto; transform-style: preserve-3d; perspective: 800px; }
+#game1 .banner ul li { position: absolute; top: 0; left: 100px; width: 776px; height: 439px; background-repeat: no-repeat; background-position: center; background-color: #000; transform: rotateY(0) translate3d(0, 0, -525px); transition: transform 0.5s; }
+#game1 .banner ul li img { width: 776px; height: 439px; opacity: 0.5; }
+#game1 .banner ul li.left { z-index: 1; transform: rotateY(62deg) translate3d(215px, 0, -525px); }
+#game1 .banner ul li.middle { z-index: 1; transform: rotateY(0) translate3d(0, 0, 0); }
+#game1 .banner ul li.middle img { opacity: 1; }
+#game1 .banner ul li.right { z-index: 2; transform: rotateY(-62deg) translate3d(-215px, 0, -525px); }
+#game1 .banner .leftArrow, #game1 .banner .rightArrow { position: absolute; top: 0; bottom: 0; width: 42px; height: 82px; margin: auto; background-repeat: no-repeat; background-position: center; cursor: pointer; }
+#game1 .banner .leftArrow { left: 65px; background-image: url("../images/home/game/left.png"); }
+#game1 .banner .rightArrow { right: 65px; background-image: url("../images/home/game/right.png"); }
 
 /* index */
 /* 动画 */

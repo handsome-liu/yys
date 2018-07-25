@@ -576,13 +576,189 @@ body {
 /* 游戏特色 */
 #game {
     // height: 700px;
-    @include border(red);
     .title {
         height: 150px;
         background: {
             image: url('../images/home/game/game_title.png');
             repeat: no-repeat;
             position: center;
+        }
+    }
+    .banner {
+        $game-img-width: 776px;
+        $game-img-height: 439px;
+        $mid-img-left-right: 100px;
+        position: relative;
+        width: $body-min-width;
+        margin: {
+            left: auto;
+            right: auto;
+        }
+        ul {
+            @include border(red);
+            position: relative;
+            width: $game-img-width + $mid-img-left-right * 2;
+            height: $game-img-height;
+            margin: {
+                left: auto;
+                right: auto;
+            }
+            transform-style: preserve-3d;
+            perspective: 800px;
+            li {
+                $rotate-Y: 66deg;
+                $translate3d-X: 386px;
+                $translate3d-Z: -445px;
+                position: absolute;
+                top: 0;
+                left: $mid-img-left-right;
+                width: $game-img-width;
+                height: $game-img-height;
+                background: {
+                    repeat: no-repeat;
+                    position: center;
+                    color: #000;
+                }
+                transform: translate3d(0, 0, $translate3d-Z) rotateY(0);
+                transition: transform 0.5s;
+                img {
+                    width: $game-img-width;
+                    height: $game-img-height;
+                    opacity: 0.5;
+                }
+                &.left {
+                    z-index: 1;
+                    transform: translate3d(-$translate3d-X, 0, $translate3d-Z) rotateY($rotate-Y);
+                }
+                &.middle {
+                    z-index: 1;
+                    transform: translate3d(0, 0, 0) rotateY(0);
+                    img {
+                        opacity: 1;
+                    }
+                }
+                &.right {
+                    z-index: 2;
+                    transform: translate3d($translate3d-X, 0, $translate3d-Z) rotateY(-$rotate-Y);
+                }
+            }
+        }
+        .leftArrow,
+        .rightArrow {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 42px;
+            height: 82px;
+            margin: auto;
+            background: {
+                repeat: no-repeat;
+                position: center;
+            }
+            cursor: pointer;
+        }
+        .leftArrow {
+            left: 65px;
+            background-image: url('../images/home/game/left.png');
+        }
+        .rightArrow {
+            right: 65px;
+            background-image: url('../images/home/game/right.png');
+        }
+    }
+}
+
+/* 游戏特色 */
+#game1 {
+    // height: 700px;
+    .title {
+        height: 150px;
+        background: {
+            image: url('../images/home/game/game_title.png');
+            repeat: no-repeat;
+            position: center;
+        }
+    }
+    .banner {
+        $game-img-width: 776px;
+        $game-img-height: 439px;
+        $mid-img-left-right: 100px;
+        position: relative;
+        width: $body-min-width;
+        margin: {
+            left: auto;
+            right: auto;
+        }
+        ul {
+            @include border(red);
+            position: relative;
+            width: $game-img-width + $mid-img-left-right * 2;
+            height: $game-img-height;
+            margin: {
+                left: auto;
+                right: auto;
+            }
+            transform-style: preserve-3d;
+            perspective: 800px;
+            li {
+                $rotate-Y: 62deg;
+                $translate3d-X: 215px;
+                $translate3d-Z: -525px;
+                position: absolute;
+                top: 0;
+                left: $mid-img-left-right;
+                width: $game-img-width;
+                height: $game-img-height;
+                background: {
+                    repeat: no-repeat;
+                    position: center;
+                    color: #000;
+                }
+                transform: rotateY(0) translate3d(0, 0, $translate3d-Z);
+                transition: transform 0.5s;
+                img {
+                    width: $game-img-width;
+                    height: $game-img-height;
+                    opacity: 0.5;
+                }
+                &.left {
+                    z-index: 1;
+                    transform: rotateY($rotate-Y) translate3d($translate3d-X, 0, $translate3d-Z);
+                }
+                &.middle {
+                    z-index: 1;
+                    transform: rotateY(0) translate3d(0, 0, 0);
+                    img {
+                        opacity: 1;
+                    }
+                }
+                &.right {
+                    z-index: 2;
+                    transform: rotateY(-$rotate-Y) translate3d(-$translate3d-X, 0, $translate3d-Z);
+                }
+            }
+        }
+        .leftArrow,
+        .rightArrow {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 42px;
+            height: 82px;
+            margin: auto;
+            background: {
+                repeat: no-repeat;
+                position: center;
+            }
+            cursor: pointer;
+        }
+        .leftArrow {
+            left: 65px;
+            background-image: url('../images/home/game/left.png');
+        }
+        .rightArrow {
+            right: 65px;
+            background-image: url('../images/home/game/right.png');
         }
     }
 }
